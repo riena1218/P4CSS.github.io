@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的網頁</title>
+    <style>
+        /* 添加全局CSS樣式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 橫幅的CSS樣式 */
+        .banner {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 導航的CSS樣式 */
+        .navigator {
+            background-color: #999;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .navigator a {
+            color: #ccc;
+            text-decoration: none;
+            margin-right: 20px;
+            cursor: pointer; /* 添加鼠标指针样式 */
+        }
+
+        .navigator a.home {
+            color: #000;
+            font-size: 20px;
+        }
+
+        /* 區段的CSS樣式 */
+        .section {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        /* 個別區段的橫幅 */
+        .section .banner {
+            background-color: #ff5733; /* 更改橫幅背景顏色 */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 100vh; /* 調整橫幅高度為100vh */
+        }
+
+        /* 個別區段的內容容器 */
+        .section .content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 個別區段的content-division */
+        .section .content-division {
+            background-color: #dcdcdc; /* 更改content-division的背景顏色 */
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>這裡是Banner</h1> <!-- 更改橫幅文字 -->
+    </div>
+    
+    <div class="navigator">
+        <a href="#banner" class="home">首頁</a> <!-- 添加id為"banner"的錨點 -->
+        <a href="#section1">區段1</a>
+        <a href="#section2">區段2</a>
+        <a href="#section3">區段3</a>
+    </div>
+
+    <!-- Section 1 -->
+    <section id="section1" class="section">
+        <div class="banner">
+            <h2>區段1 Banner</h2>
+        </div>
+        <div class="content">
+            <div class="content-division">
+                <h2>區段1 內容</h2>
+                <p>這是區段1的內容部分。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2" class="section">
+        <div class="banner">
+            <h2>區段2 Banner</h2>
+        </div>
+        <div class="content">
+            <div class="content-division">
+                <h2>區段2 內容</h2>
+                <p>這是區段2的內容部分。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3" class="section">
+        <div class="banner">
+            <h2>區段3 Banner</h2>
+        </div>
+        <div class="content">
+            <div class="content-division">
+                <h2>區段3 內容</h2>
+                <p>這是區段3的內容部分。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加用於平滑滾動的JavaScript代碼 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 當點擊導航欄超鏈結時，平滑滾動到目標位置
+            const links = document.querySelectorAll(".navigator a");
+            links.forEach(link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
